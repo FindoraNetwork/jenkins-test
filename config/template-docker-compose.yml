@@ -1,0 +1,152 @@
+version: '2.2'
+services:
+
+  node0:
+    container_name: node0
+    image: "public.ecr.aws/k6m5b6e2/dev/findorad:<image>"
+
+    command:
+      [
+        'node',
+        '--checkpoint-file=/var/checkpoint.toml'
+      ]
+    environment:
+      - LEDGER_DIR=/var/ledger
+      - TENDERMINT_HOST=0.0.0.0
+      - ABCI_HOST=0.0.0.0
+      - SERVER_HOST=0.0.0.0
+      - LEDGER_HOST=0.0.0.0
+      - RUST_LOG=debug
+      - ABCI_LOG_LEVEL=debug
+      - ENABLE_LEDGER_SERVICE=true
+      - ENABLE_QUERY_SERVICE=true
+      - ENABLE_ETH_API_SERVICE=1
+      - EVM_CHAIN_ID=1111
+      - RUC_LOG_LEVEL=debug
+      - EVM_FIRST_BLOCK_HEIGHT=1
+      - BLOCKS_TO_WAIT_AFTER_ABAR=8
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "8667:8667"
+      - "8668:8668"
+      - "8669:8669"
+      - "26658:26658"
+      - "26656-26657:26656-26657"
+      - "26660:26660"
+    volumes:
+      - /home/ubuntu/localnet/node0:/root/.tendermint
+    restart: always
+
+  node1:
+    container_name: node1
+    image: "public.ecr.aws/k6m5b6e2/dev/findorad:<image>"
+
+    command:
+      [
+        'node',
+        '--checkpoint-file=/var/checkpoint.toml'
+      ]
+    environment:
+      - LEDGER_DIR=/var/ledger
+      - TENDERMINT_HOST=0.0.0.0
+      - ABCI_HOST=0.0.0.0
+      - SERVER_HOST=0.0.0.0
+      - LEDGER_HOST=0.0.0.0
+      - RUST_LOG=debug
+      - ABCI_LOG_LEVEL=debug
+      - ENABLE_LEDGER_SERVICE=true
+      - ENABLE_QUERY_SERVICE=true
+      - ENABLE_ETH_API_SERVICE=1
+      - EVM_CHAIN_ID=1111
+      - RUC_LOG_LEVEL=ERROR
+      - EVM_FIRST_BLOCK_HEIGHT=1
+      - BLOCKS_TO_WAIT_AFTER_ABAR=8
+    volumes:
+      - /home/ubuntu/localnet/node1:/root/.tendermint
+    restart: always
+
+
+  node2:
+    container_name: node2
+    image: "public.ecr.aws/k6m5b6e2/dev/findorad:<image>"
+
+    command:
+      [
+        'node',
+        '--checkpoint-file=/var/checkpoint.toml'
+      ]
+    environment:
+      - LEDGER_DIR=/var/ledger
+      - TENDERMINT_HOST=0.0.0.0
+      - ABCI_HOST=0.0.0.0
+      - SERVER_HOST=0.0.0.0
+      - LEDGER_HOST=0.0.0.0
+      - RUST_LOG=debug
+      - ABCI_LOG_LEVEL=debug
+      - ENABLE_LEDGER_SERVICE=true
+      - ENABLE_QUERY_SERVICE=true
+      - ENABLE_ETH_API_SERVICE=1
+      - EVM_CHAIN_ID=1111
+      - RUC_LOG_LEVEL=ERROR
+      - EVM_FIRST_BLOCK_HEIGHT=1
+      - BLOCKS_TO_WAIT_AFTER_ABAR=8
+    volumes:
+      - /home/ubuntu/localnet/node2:/root/.tendermint
+    restart: always
+
+  node3:
+    container_name: node3
+    image: "public.ecr.aws/k6m5b6e2/dev/findorad:<image>"
+
+    command:
+      [
+        'node',
+        '--checkpoint-file=/var/checkpoint.toml'
+      ]
+    environment:
+      - LEDGER_DIR=/var/ledger
+      - TENDERMINT_HOST=0.0.0.0
+      - ABCI_HOST=0.0.0.0
+      - SERVER_HOST=0.0.0.0
+      - LEDGER_HOST=0.0.0.0
+      - RUST_LOG=debug
+      - ABCI_LOG_LEVEL=debug
+      - ENABLE_LEDGER_SERVICE=true
+      - ENABLE_QUERY_SERVICE=true
+      - ENABLE_ETH_API_SERVICE=1
+      - EVM_CHAIN_ID=1111
+      - RUC_LOG_LEVEL=ERROR
+      - EVM_FIRST_BLOCK_HEIGHT=1
+      - BLOCKS_TO_WAIT_AFTER_ABAR=8
+    volumes:
+      - /home/ubuntu/localnet/node3:/root/.tendermint
+    restart: always
+
+  node4:
+    container_name: node4
+    image: "public.ecr.aws/k6m5b6e2/dev/findorad:<image>"
+
+    command:
+      [
+        'node',
+        '--checkpoint-file=/var/checkpoint.toml'
+      ]
+    environment:
+      - LEDGER_DIR=/var/ledger
+      - TENDERMINT_HOST=0.0.0.0
+      - ABCI_HOST=0.0.0.0
+      - SERVER_HOST=0.0.0.0
+      - LEDGER_HOST=0.0.0.0
+      - RUST_LOG=debug
+      - ABCI_LOG_LEVEL=debug
+      - ENABLE_LEDGER_SERVICE=true
+      - ENABLE_QUERY_SERVICE=true
+      - ENABLE_ETH_API_SERVICE=1
+      - EVM_CHAIN_ID=1111
+      - RUC_LOG_LEVEL=ERROR
+      - EVM_FIRST_BLOCK_HEIGHT=1
+      - BLOCKS_TO_WAIT_AFTER_ABAR=8
+    volumes:
+      - /home/ubuntu/localnet/node4:/root/.tendermint
+    restart: always
